@@ -1,0 +1,36 @@
+{
+  "name": "@pinax/antelope-accounts",
+  "version": "0.1.0",
+  "description": "",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "prepublishOnly": "npm run codegen && npm run build",
+    "build": "tsup src/index.ts --dts",
+    "codegen": "buf generate proto",
+    "pub": "npm publish --access public"
+  },
+  "engines": {
+    "node": ">=16"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pinax-network/antelope-accounts-js.git"
+  },
+  "author": "Yaro <yaro@pinax.network>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pinax-network/antelope-accounts-js/issues"
+  },
+  "homepage": "https://github.com/pinax-network/antelope-accounts-js#readme",
+  "dependencies": {
+    "@bufbuild/connect": "^0.8.4",
+    "@bufbuild/connect-node": "^0.8.4"
+  },
+  "devDependencies": {
+    "@bufbuild/protoc-gen-connect-es": "^0.8.4",
+    "@bufbuild/protoc-gen-es": "^1.2.0",
+    "tsup": "^6.7.0",
+    "typescript": "^5.0.2"
+  }
+}
