@@ -1,0 +1,14 @@
+version: '3'
+services:
+  substreams-sink:
+    build:
+      context: .
+    container_name: "substreams-sink"
+    restart: always
+    ports:
+      - "8000:8000"
+    volumes:
+      - "./accounts-badger.db:/my-badger.db"
+    environment:
+      - SPKG_URL=https://github.com/pinax-network/substreams/releases/download/accounts-v0.4.0/accounts-v0.4.0.spkg
+      - SUBSTREAMS_ENDPOINT=eos.firehose.eosnation.io:9001

@@ -6,3 +6,4 @@ dist
 .DS_Store
 lib
 src/generated
+server/accounts-badger.db

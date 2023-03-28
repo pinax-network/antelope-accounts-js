@@ -15,3 +15,7 @@ console.log(data)
 ```
 > node example.js
 ```
+
+
+## Server
+You can start your own substreams server by running `docker compose up` in the `./server` directory

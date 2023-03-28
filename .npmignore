@@ -1,0 +1,3 @@
+server/
+proto/
+buf.gen.yaml
