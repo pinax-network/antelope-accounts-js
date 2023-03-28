@@ -18,4 +18,4 @@ console.log(data)
 
 
 ## Server
-You can start your own substreams server by running `docker compose up` in the `./server` directory
+You can start your own accounts sink server by running `docker compose up` in the `./server` directory
