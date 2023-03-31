@@ -6,8 +6,8 @@ Get account origin information using Accounts substreams KV sink endpoint
 ```
 import { createClient } from "@pinax/antelope-accounts"
 const client = createClient( process.env.SINK_ENDPOINT );
-const data = await client.getOrigin("account");
-console.log(data)
+const one = await client.getOrigin("account");
+const many = await client.getOrigins(["account1","accounts2"]);
 ```
 
 ## Example

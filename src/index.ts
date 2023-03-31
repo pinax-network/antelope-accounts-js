@@ -63,5 +63,27 @@ class AntelopeAccountsClient {
 
         return CreatorInfoCache[account]
     }
+
+    public async getOrigins(accounts: string[]): Promise<OriginInfo[]> {
+        if (!accounts) throw new Error("Invalid account list");
+
+        const response = await this.client.getMany({
+            keys: accounts,
+        });
+        return response.values.map((value) => {
+            const account = Account.fromBinary(value);
+            return {
+                account: account.name,
+                creator: account.creator?.creator ?? "",
+                created_at: account.timestamp?.toDate().toISOString() ?? "",
+                keys: [... new Set([
+                    ...(account.owner?.keys.map((key) => key.publicKey) ?? []),
+                    ...(account.active?.keys.map((key) => key.publicKey) ?? []),
+                ])],
+                trx_id: account.trxId,
+                bytes: account.ramBytes,
+            }
+        });
+    }
 }
 
